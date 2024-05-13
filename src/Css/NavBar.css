@@ -1,0 +1,19 @@
+.nav{
+    position: fixed;
+    inset: 87vh 0 0 0;
+    width: 95%;
+    z-index: 1000;
+}
+@media screen and (width < 700px) {
+    .Add-options-nav-bar{
+        display: none;
+    }
+}
+@media screen and (max-width:500px) {
+    #SwichTheme{
+        margin-left: 0;
+    }
+    #data-user-nav-bar{
+        display: none;
+    }
+}

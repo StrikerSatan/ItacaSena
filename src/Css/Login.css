@@ -1,0 +1,212 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  background: #202020;
+}
+
+/* estilos del contenedor que contiene todo */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 550px;
+  background: url(./Image/fondodef.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  
+}
+
+/* estilos de la parte izquierda */
+.container .content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  background: transparent;
+  padding: 80px;
+  color: #e4e4e4;
+
+}
+/* estilos unicamente de la palabra "key" */
+span{
+  font-size: 30px;
+  font-weight: 900;
+}
+/* estilos del texto */
+.container .content p{
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+/* estilos de los iconos de las redes sociales */
+.social-icons a i {
+  font-size: 30px;
+  color: #e4e4e4;
+  margin-right: 10px;
+  transition: .5s ease; /* determinar cuanto tirmpo dura la accion del icono */
+  
+}
+/* tanimacion iconos */
+.social-icons a:hover i {
+  transform: scale(1.4);
+}
+
+/* parte derecha */
+
+.container .logreg-box{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(90% - 50%); 
+  height: 100%;
+  
+}
+
+.logreg-box .form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  backdrop-filter: blur(20px); /* para generar la distorcion del fondo*/
+  border-top-right-radius: 10px; 
+  border-bottom-right-radius: 10px;
+  color: #e4e4e4;
+
+}
+/* estilos del titulo "login" */
+.form-box h2{
+  font-size: 40px;
+  text-align: center;
+  font-weight: 790;
+}
+/* formularios */
+.form-box .input-box {
+  position: relative;
+  width: 340px;
+  height: 50px;
+  border-bottom: 2px solid #e4e4e4; /* para generar la linea blanca  */
+  margin: 30px 0;
+}
+/* donde se llena la informacion */
+.input-box input{  
+  width: 100%;
+  height: 100%;   
+  background: transparent; /* volver el recuadro para llenar la informacion transparente */
+  border: none; /* cuando uno vuelve el recuadro transparente quedan unos bordes, con esto se los quitamos */
+  outline: none;
+  font-size: 16px;
+  color: #e4e4e4;
+  font-weight: 500;
+  padding-right: 30px;
+
+}
+
+
+
+/* texto arriba de los formularios */
+.input-box  label {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s ease; /* tiempo de duracion de la animación */
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* generar la animacion de subir el texto cuando vamos a escribir */
+.input-box input:focus~label,
+.input-box input:focus~label{
+  top: -5px;
+}
+/* Mober los iconos del formulario */
+.input-box .icon {
+  position: absolute;
+  top: 13px; /* bajar el icono */
+  right: 0; /* mober hacia la derecha */
+  font-size: 19px;
+}
+/* recordar y recuperar contraseña */
+.form-box .remember-forgot {
+  font-size: 14.5px;
+  font-weight: 500;
+  margin: -15px 0 15px; /* centrar los textos */
+  display: flex; /* poner los textos uno al lado del otro */
+  justify-content: space-between; /* dejar un espacio entre cada texto */
+}
+
+.remember-forgot label input {
+  accent-color: #e4e4e4;
+  margin-right: 3px; /* espacio entre el cuadrado y la letra*/
+}
+/* recuperar contraseña */
+.remember-forgot a {
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+/* al pasar el cursor por el linck genera una linea inferior */
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+/* boton para iniciar sesion  */
+.btn {
+  width: 100%;
+  height: 45px;
+  background: #66eb6c; 
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer; /*al pasar el cursor cambie */
+  font-size: 20px;
+  color: #e4e4e4;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .7); /* para que en los bordes del boton se vea un difuminado o un relieve oscuro */
+}
+
+.btn:hover {
+  background-color: #4CAF50; 
+
+}
+/* si no tiene cuentra, para crear una */
+.form-box .login-registrer{
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.login-registrer p {
+  color: #e4e4e4;
+  font-weight: 700;
+  text-decoration: none;
+}
+.login-registrer a {
+  color: #4CAF50;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* al pasar el cursor por el linck genera una linea inferior */
+.login-registrer p a:hover {
+  text-decoration: underline;
+}
+

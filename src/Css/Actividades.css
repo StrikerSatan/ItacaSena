@@ -1,0 +1,233 @@
+/* Actividades.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Estilo de fuente */
+  }
+  
+  .bottom-bar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  
+  .content {
+    background-color: white;
+    padding: 20px;
+    height: calc(100vh - 40px);
+    box-sizing: border-box;
+  }
+  
+  .content h1 {
+    font-size: 1.5em;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .horizontal-divs {
+    display: flex;
+    height: 500px;
+  }
+  
+  .div1 {
+    flex: 25; /* Ocupa el 25% del espacio disponible */
+    /* background: repeating-linear-gradient(
+      to bottom,
+      #EBE7E7,
+      #EBE7E7 40px,
+      #F6F1F1  40px,
+      #F6F1F1  80px */
+      /* ); */
+      background-color: #F6F1F1;
+    border: 2px solid #B6A8A8; /* Borde delgado de color gris */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: row; /* Alinea los botones horizontalmente */
+    margin-bottom: 10px;
+    background-color: #F6F1F1;
+    width: 100%;
+  }
+  
+  button {
+    margin: 3px;
+  }
+  
+  .existing-activities {
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .activity {
+    position: relative; /* Permitirá posicionar el botón absolutamente dentro de este elemento */
+    padding: 10px;
+    width: 300px;
+    background-color: #F6F1F1;;
+  }
+  
+  /* Patrón de colores para las filas de actividades */
+  .activity:nth-child(even) {
+    background-color: #F6F1F1;
+  }
+  
+  .activity:nth-child(odd) {
+    background-color: #B6A8A8;
+  }
+  
+  .div2 {
+    flex: 75; /* Ocupa el 75% del espacio disponible */
+    background-color: #F6F1F1; /* Color salmon claro */
+    border: 2px solid #EED9D9;
+    padding: 10px; /* Ajusta el espaciado según tus necesidades */
+  }
+  .ellipsis-btn {
+    position: absolute;
+    top: 5px; /* Ajusta según la posición que desees */
+    right: 5px; /* Ajusta según la posición que desees */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+    color: #000;
+  }
+  /* ---------------------Chat------------------- */
+  .gray-bar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    padding: 10px;
+    width: 100%; /* Ajusta la anchura para que ocupe todo el ancho */
+    position: fixed; /* Fija la barra en la parte superior */
+    bottom: 0; /* Alinea la barra en la parte inferior */
+    right: 0; /* Alinea la barra a la derecha */
+    z-index: 999; /* Asegura que la barra esté sobre otros elementos */
+    display: flex; /* Utiliza flexbox para la alineación */
+    justify-content: flex-end; /* Alinea los elementos al final (derecha) */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+  
+  }
+  
+  .chat-icon {
+    margin-right: 10px; /* Ajusta el margen derecho para separar la palabra "Chat" del borde */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Estilo de fuente */
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la barra */
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    bottom: 103px;
+    right: 10px;
+    width: 315px; /* Ancho del área cubierta por el overlay */
+    height: 330px; /* Alto del área cubierta por el overlay */
+    z-index: 998; /* Detrás del modal */
+  }
+  
+  .modalChat {
+    background-color: #fff;
+    padding: 20px;
+  
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border-radius: 8px 8px 8px 8px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .modalChat-content {
+    margin-top: 10px;
+  }
+  
+  
+  .title-bg {
+    background-color: #333; /* Color de fondo gris oscuro */
+    padding: 5px 0; /* Eliminar el padding horizontal */
+    text-align: center; /* Centrar el texto */
+    margin: -20px;
+  }
+  
+  .title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 20px; /* Tamaño del texto del título */
+  }
+  
+  .chat-messages {
+    overflow-y: auto; /* Hacer que los mensajes sean desplazables verticalmente si se exceden */
+    height: calc(100% - 40px); /* Ajustar la altura para mensajes y encabezado */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+  
+  .chat-input {
+    width: calc(100% - 20px); /* Ajustar el ancho del input y compensar el margen */
+    padding: 6px 15px; /* Padding del input */
+    margin: 0; /* Eliminar el margen */
+    border: 1px solid #000; /* Borde negro */
+    border-radius: 5px; /* Radio de borde */
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho */
+    background-color: #fff; /* Fondo blanco */
+    color: #000; /* Texto negro */
+  }
+  
+  /* -------------Crear Actividades----------- */
+  
+  /* .modal-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; 
+    background-color: #fff;
+    border: 7px solid #ccc;
+    padding: 20px;
+  }
+  } */
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  select {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .date {
+    display: flex;
+    gap: 10px;
+  }
+  .date label,
+  .date input {
+    width: auto; 
+    margin-bottom: 0; 
+  }
+  
+  #fecha-inicio,
+  #fecha-fin {
+    flex: 1; 
+  } 
