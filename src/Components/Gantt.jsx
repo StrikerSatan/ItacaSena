@@ -13,8 +13,8 @@ const GanttChart = () => {
         Gantt.init('gantt_here');
 
         const [actividadesRes, tareasRes] = await Promise.all([
-          axios.get('https://itacaapi2-0.onrender.com/api/users/Actividades'),
-          axios.get('https://itacaapi2-0.onrender.com/api/users/tareas')
+          axios.get('https://itacaapi-ap2d.onrender.com/api/users/Actividades'),
+          axios.get('https://itacaapi-ap2d.onrender.com/api/users/tareas')
         ]);
 
         const actividades = actividadesRes.data.map(actividad => ({

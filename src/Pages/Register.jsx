@@ -10,7 +10,7 @@ const Register = () => {
   
   const handleSubmit  = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://itacaapi2-0-1oon.onrender.com/api/auth/signup', {
+    const response = await fetch('https://itacaapi-ap2d.onrender.com/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

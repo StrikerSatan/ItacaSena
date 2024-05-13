@@ -57,17 +57,26 @@ export default function Gantt() {
         <h1>Holi</h1>
       </Modalchat>
 
-      <Modal isOpen={isNewActivityModalOpen} onRequestClose={toggleNewActivityModal} style={{ content: {
+      <Modal isOpen={isNewActivityModalOpen} onRequestClose={toggleNewActivityModal} style={{
+    content: {
       position: 'fixed',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      width: '440px',
-      height: '65vh', /* Ajusta el largo del modal al 80% de la altura de la ventana */
+      width: '400px',
+      height: '63vh',
       border: '7px solid #ccc',
       padding: '20px',
       zIndex: '998',
-    }}}>
+
+      scrollbarWidth: 'none', // Para navegadores que no sean WebKit
+      WebkitScrollbarWidth: 'none', // Para navegadores WebKit (Chrome, Safari, etc.)
+    },
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: '997',
+    },
+  }}>
       <div className="modalCreate-content">
       <h2 style={{ fontSize: '2em', color: '#00' }}>Nueva Actividad</h2>
         <form>

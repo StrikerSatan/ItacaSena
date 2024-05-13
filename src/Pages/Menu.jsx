@@ -204,7 +204,6 @@ export default function MenuPage() {
       {/* Modal para crear proyecto */}
       <CrearProyecto isOpen={showModal} onClose={closeModal} />
       <Modalperfil isOpen={isModalOpen} onClose={toggleModalperfil}>
-        <h1>Holi</h1>
       </Modalperfil>
     </div>
   );
