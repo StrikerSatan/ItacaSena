@@ -10,7 +10,8 @@ import Menu from "./Pages/Menu";
 import AdminDashboard from "./Pages/AdminPage";
 import Users from "./Pages/Users";
 import Dashboard from "./Components/proyectoComponentes/Dashboard";
-import Proyecto from "./Pages/Proyecto"; // Importa el componente Proyecto
+import Proyecto from "./Pages/Proyecto";
+// import Sidebar from "./Pages/Sidebar";
 
 
 function App() {

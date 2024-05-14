@@ -18,7 +18,7 @@ const Register = () => {
       body: JSON.stringify({ username, email, password, numDni })
     });
     if (response.ok) {
-      window.location.href = '/Login';
+      window.location.href = '/';
       console.log(username, email, password, numDni)
     } else {
       alert("error al iniciar sesion")

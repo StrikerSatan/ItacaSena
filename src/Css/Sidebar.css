@@ -1,0 +1,64 @@
+/* Sidebar.css */
+
+.sidebar {
+    position: fixed;
+    left: -250px; /* Ancho del sidebar */
+    top: 0;
+    bottom: 0;
+    width: 200px; /* Ancho del sidebar */
+    background-color: #222; /* Color de fondo del sidebar */
+    color: #fff; /* Color del texto del sidebar */
+    padding-top: 60px; /* Ajusta según la altura de tu navbar */
+    transition: left 0.3s ease; /* Transición suave al mostrar/ocultar */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar.closed {
+    left: -250px; /* Ancho del sidebar */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Transición de color de fondo */
+  }
+  
+  .sidebar a:hover {
+    background-color: #444; /* Color de fondo al pasar el ratón */
+  }
+  
+  .toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 10px;
+    padding: 10px;
+    background-color: #333; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 50%; /* Botón redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté sobre el sidebar */
+    transition: background-color 0.3s ease; /* Transición de color de fondo */
+  }
+  
+  .toggle-btn:hover {
+    background-color: #444; /* Color de fondo al pasar el ratón */
+  }
+  
