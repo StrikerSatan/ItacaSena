@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../Css/Users.css'
 import { jwtDecode } from 'jwt-decode';
 const Users = () => {
+    const [users, setUsers] = useState([]);
     const [token, setToken] = useState('');
     const [id, setId] = useState('');
 
@@ -12,7 +13,15 @@ const Users = () => {
           const decodedToken = jwtDecode(storedToken);
           setId(storedToken.id);
         }
-        getAllUsers()
+        getAllUsers(storedToken)
+                .then(data => {
+                    setUsers(data);
+                    
+                })
+                .catch(error => {
+                    console.error("Error al obtener usuarios:", error);
+                });
+
       })
 
       const getAllUsers = async(token) => {
@@ -24,13 +33,13 @@ const Users = () => {
                     'x-access-token': token
                 },
             })
-            if (response.ok){
+           if (response.ok) {
                 const data = await response.json();
-                console.log(data)
+                console.log(data);
                 return data;
-            }else{
-                console.error('Se nos daño')
+            } else {
                 console.error("Error al obtener usuarios:", await response.text());
+                throw new Error("Error al obtener usuarios");
             }
         } catch (error){
             console.error(error);
