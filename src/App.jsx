@@ -7,6 +7,7 @@ import Register from "./Pages/Register"
 import ForgotPassword from "./Pages/ForgotPassword";
 import Chats from "./Pages/Chats";
 import Menu from "./Pages/Menu";
+import AdminDashboard from "./Pages/AdminPage";
 import Users from "./Pages/Users";
 import Dashboard from "./Components/proyectoComponentes/Dashboard";
 import Proyecto from "./Pages/Proyecto"; // Importa el componente Proyecto
@@ -111,6 +112,15 @@ function App() {
             {
               <>
                 <Users />
+              </>
+            } 
+            />
+            <Route
+            path="/admin"
+            element=
+            {
+              <>
+                <AdminDashboard />
               </>
             } 
             />
