@@ -2,7 +2,6 @@ import { useState } from 'react';
 import '../Css/Login.css'
 import { Link } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +21,13 @@ const Login = () => {
       const decodedToken = jwtDecode(data.token);
       const userRole = decodedToken.role;
       localStorage.setItem('token', data.token);
-      window.location.href = '/menu';
+      if (userRole == 'admin') {
+        window.location.href = '/admin';
+      }else if (userRole == 'user'){
+        window.location.href = '/menu';
+      }else if (userRole == 'client'){
+      window.location.href = '/proyecto';
+      }
     } else {
       alert("error al iniciar sesion")
       console.log("ERROR");

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import { Card, CardBody, CardFooter, Image, Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textarea } from "@nextui-org/react";
 import Modalperfil from "./Modals/Perfil";
 // Componente para crear un nuevo proyecto
@@ -90,6 +90,13 @@ function CustomProgressBar({ percentage }) {
 export default function MenuPage() {
   const [showModal, setShowModal] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [token, setToken] = useState('');
+
+  useEffect(() =>{
+    const storedToken = localStorage.getItem('token');
+    setToken (storedToken);
+
+  })
 
   const openModal = () => {
     setShowModal(true);
@@ -200,6 +207,7 @@ export default function MenuPage() {
           </div>
         ))}
       </div>
+      <p>{token}</p>
 
       {/* Modal para crear proyecto */}
       <CrearProyecto isOpen={showModal} onClose={closeModal} />

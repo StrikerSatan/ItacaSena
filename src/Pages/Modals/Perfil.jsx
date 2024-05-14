@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../Css/Perfil.css'
+import { jwtDecode } from 'jwt-decode';
 const Modalperfil = ({ isOpen, onClose, children }) => {
+  const [token, setToken] = useState('');
+  const [_id, setId] = useState('');
   if (!isOpen) return null;
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      const decodedToken = jwtDecode(storedToken);
+    }
+  })
   return (
     <div className="modal-perfil-overlay" onClick={onClose}>
       <div className="modal-perfil-content" onClick={(e) => e.stopPropagation()}>
