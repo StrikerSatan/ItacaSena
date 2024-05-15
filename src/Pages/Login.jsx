@@ -22,7 +22,7 @@ const Login = () => {
       const userRole = decodedToken.role;
       localStorage.setItem('token', data.token);
       if (userRole == 'admin') {
-        window.location.href = '/menu';
+        window.location.href = '/admin';
       }else if (userRole == 'user'){
         window.location.href = '/menu';
       }else if (userRole == 'client'){
