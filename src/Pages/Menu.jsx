@@ -151,13 +151,17 @@ export default function MenuPage() {
       </div>
 
       <div className="grid gap-2 grid-cols-2 sm:grid-cols-4">
+
         {proyectos.map((project) => (
-          <div key={project.id} className="p-4 bg-white rounded-lg shadow-md">
-            <img src={project.image} alt="project img" />
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
-            <button style={{ backgroundColor: 'blue', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }} onClick={() => handleViewProject(project._id)}>ver proyecto</button>
-          </div>
+            <Card key={project.id} >
+              <CardBody shadow="sm" radius="lg" width="100%" isblurred>
+                <Image src={project.image} />
+              </CardBody>
+              <CardFooter className='flex justify-between items-center'>
+                <b>{project.name}</b>
+                <Button onClick={() => handleViewProject(project._id)} color='danger'>Ver</Button>
+              </CardFooter>
+            </Card>          
         ))}
       </div>
 

@@ -48,7 +48,7 @@ export default function Gantt() {
       </div>
 
       {/* Botón para abrir el modal */}
-      <div style={{ background: '#333', color: 'white', padding: '5px', width: '84%', position: 'fixed', bottom: 0, right: 0, zIndex: 999, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+      <div style={{ color: 'black', padding: '5px', width: '84%', position: 'fixed', bottom: 0, right: 0, zIndex: 999, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
         <div style={{ marginRight: '10px', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer' }} onClick={toggleModalchat}><i className="far fa-comments"></i> Chat</div>
       </div>
 

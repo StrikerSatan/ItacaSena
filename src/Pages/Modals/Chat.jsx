@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 const socket = io('/');
 
@@ -29,9 +31,9 @@ const Chat = ({ isOpen, onClose, projectData }) => {
         socket.emit('message', message);
         console.log('Mensaje enviado con éxito:', data);
         setMessage('');
-  
+
         setMessages(prevMessages => [...prevMessages, data]);
-  
+
         recibeMessages();
       } else {
         console.log('Error al enviar el mensaje');
@@ -40,7 +42,7 @@ const Chat = ({ isOpen, onClose, projectData }) => {
       console.error('Error al enviar el mensaje:', error);
     }
   };
-  
+
 
 
   const recibeMessages = async () => {
@@ -122,13 +124,27 @@ const Chat = ({ isOpen, onClose, projectData }) => {
           ))}
           <div ref={messagesEndRef} />
         </ul>
-        <div className='flex items-center'>
+
+        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+          <Input type="text" placeholder='Mensaje' value={message} onChange={(e) => setMessage(e.target.value)} className='text-black mr-2' />
+
+          <Button color="warning" variant="faded" type='submit' onClick={handleSubmit} className='flex flex-wrap gap-4 items-center'>
+            Faded
+          </Button>
+
+          {/* <button type='submit' onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+
+          </button> */}
+        </div>
+
+        {/* <div className='flex items-center'>
+
           <input type="text" placeholder='Escribir mensaje'
             value={message} onChange={(e) => setMessage(e.target.value)} className='border-2 border-zinc-500 p-2 flex-1 text-black mr-2' />
           <button type='submit' onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
             Enviar
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
