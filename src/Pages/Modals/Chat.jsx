@@ -4,7 +4,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const socket = io('/');
 
-const Chat = ({ isOpen, onClose }) => {
+const Chat = ({ isOpen, onClose, projectData }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
@@ -15,7 +15,7 @@ const Chat = ({ isOpen, onClose }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/chats/663c414b51302116269e40ab/message/662ed6a4cb0367413933dedf', {
+      const response = await fetch(`https://itacaapi-puw8.onrender.com/api/chats/66440c82e8eb8b58a6076510/message/6642dc7dd4e9a32e2277680d`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,10 +30,8 @@ const Chat = ({ isOpen, onClose }) => {
         console.log('Mensaje enviado con éxito:', data);
         setMessage('');
   
-        // Actualiza el estado de los mensajes agregando el nuevo mensaje al final del array
         setMessages(prevMessages => [...prevMessages, data]);
   
-        // Llama a la función para cargar los mensajes nuevamente
         recibeMessages();
       } else {
         console.log('Error al enviar el mensaje');
@@ -47,7 +45,7 @@ const Chat = ({ isOpen, onClose }) => {
 
   const recibeMessages = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/chats/663c414b51302116269e40ab/message', {
+      const response = await fetch('https://itacaapi-puw8.onrender.com/api/chats/66440c82e8eb8b58a6076510/message', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +84,7 @@ const Chat = ({ isOpen, onClose }) => {
 
   const handleDeleteMessage = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/chats/663c414b51302116269e40ab/message/${id}`, {
+      const response = await fetch(`https://itacaapi-puw8.onrender.com/api/chats/66440c82e8eb8b58a6076510/message/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
