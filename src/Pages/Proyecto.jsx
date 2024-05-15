@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Listbox, ListboxItem, Button } from "@nextui-org/react";
 import Dashboard from "../Components/proyectoComponentes/Dashboard";
 import Gantt from "../Components/proyectoComponentes/Gantt";
@@ -6,11 +7,13 @@ import Observaciones from "../Components/proyectoComponentes/Observaciones";
 import EditarProyecto from "../Components/proyectoComponentes/EditarProyecto";
 
 export default function Proyecto() {
+  const location = useLocation();
+  const projectData = location.state ? location.state.project : null;
   const [activeSection, setActiveSection] = useState("dashboard");
 
   const handleSectionChange = (section) => {
     if (section === "menu") {
-      window.location.href = "/menu"; // Redireccionar a la página de menú
+      window.location.href = "/menu"; 
     } else {
       setActiveSection(section);
     }
@@ -19,13 +22,13 @@ export default function Proyecto() {
   const renderComponent = () => {
     switch (activeSection) {
       case "dashboard":
-        return <Dashboard />;
+        return <Dashboard projectData={projectData} />;
       case "gantt":
-        return <Gantt />;
+        return <Gantt projectData={projectData} />;
       case "observaciones":
-        return <Observaciones />;
+        return <Observaciones projectData={projectData} />;
       case "editarproyecto":
-        return <EditarProyecto />;
+        return <EditarProyecto projectData={projectData} />;
       default:
         return null;
     }
@@ -56,7 +59,7 @@ export default function Proyecto() {
             Observaciones
           </ListboxItem>
           {/* Agregar el botón "Editar proyecto" aquí */}
-          
+
           <ListboxItem key="editarproyecto" selected={activeSection === "editarproyecto"}>
             Editar proyecto
           </ListboxItem>
@@ -64,7 +67,9 @@ export default function Proyecto() {
         </Listbox>
       </div>
       {/* Contenido */}
-      <div className="flex-grow">{renderComponent()}</div>
+      <div className="flex-grow">
+        {renderComponent()}
+      </div>
     </div>
   );
 }
