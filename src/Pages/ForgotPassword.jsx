@@ -8,7 +8,7 @@ const ForgotPassword = ({ onSubmit }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://itacaapi-ap2d.onrender.com/api/user/recoverPassword', {
+      const response = await fetch('https://itacaapi-puw8.onrender.com/api/user/recoverPassword', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
