@@ -7,8 +7,13 @@ export default defineConfig({
     server: {
         proxy: {
             '/socket.io': {
-                target: 'https://itacaapi2-0-1oon.onrender.com/api/3001',
+                target: 'https://itacaapi-puw8.onrender.com:3001',
+                changeOrigin: true,
                 ws: true
+            },
+            '/api': {
+                target: 'https://itacaapi-puw8.onrender.com:3000',
+                changeOrigin: true
             }
         }
     }
