@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('https://itacaapi-ap2d.onrender.com/api/auth/signin', {
+    const response = await fetch('https://itacaapi-puw8.onrender.com/api/auth/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ const Login = () => {
       const userRole = decodedToken.role;
       localStorage.setItem('token', data.token);
       if (userRole == 'admin') {
-        window.location.href = '/admin';
+        window.location.href = '/menu';
       }else if (userRole == 'user'){
         window.location.href = '/menu';
       }else if (userRole == 'client'){
