@@ -27,7 +27,7 @@ const Users = () => {
 
     const getAllUsers = async (token) => {
         try {
-            const response = await fetch('https://itacaapi-ap2d.onrender.com/api/users/', {
+            const response = await fetch('https://itacaapi-puw8.onrender.com/api/users/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
