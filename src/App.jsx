@@ -11,6 +11,7 @@ import AdminDashboard from "./Pages/AdminPage";
 import Users from "./Pages/Users";
 import Dashboard from "./Components/proyectoComponentes/Dashboard";
 import Proyecto from "./Pages/Proyecto";
+import ManageUsers from "./Pages/AdministarUser";
 // import Sidebar from "./Pages/Sidebar";
 
 
@@ -125,6 +126,24 @@ function App() {
               </>
             } 
             />
+            <Route
+            path="/usersManage"
+            element=
+            {
+              <>
+                <ManageUsers />
+              </>
+            } 
+            />
+            {/* <Route
+            path="/admin"
+            element=
+            {
+              <>
+                <AdminDashboard />
+              </>
+            } 
+            /> */}
         </Routes>
       </BrowserRouter>
     </>
