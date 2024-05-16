@@ -4,7 +4,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Input } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 
-const socket = io ('/');
+const socket = io('/');
 
 const Chat = ({ isOpen, onClose, projectData }) => {
   const [message, setMessage] = useState('');
@@ -110,8 +110,8 @@ const Chat = ({ isOpen, onClose, projectData }) => {
         <div className={`bg-black p-2 rounded-md`}>
           <h1 className='text-2xl font-bold my-2 text-white'>Chat</h1>
         </div>
-  
-        <div className="messages-list-container max-h-96" style={{ overflowY: 'scroll' }}>
+
+        <div className="messages-list-container max-h-96" >
           <ul className="messages-list flex-1" style={{ overflowY: 'auto', paddingRight: '15px' }}>
             {messages.map((message) => (
               <li key={message._id} className={`my-2 p-2 table rounded-md ${message._id === 'Yo' ? 'bg-sky-700' : 'bg-black ml-auto'}`}>
@@ -127,17 +127,17 @@ const Chat = ({ isOpen, onClose, projectData }) => {
             <div ref={messagesEndRef} />
           </ul>
         </div>
-  
+
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
           <Input type="text" placeholder='Mensaje' value={message} onChange={(e) => setMessage(e.target.value)} className='text-black mr-2' />
-  
+
           <Button color="primary" variant="faded" type='submit' onClick={handleSubmit} className='flex flex-wrap gap-4 items-center'>
             Enviar
           </Button>
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default Chat;
