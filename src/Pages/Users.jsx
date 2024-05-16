@@ -59,7 +59,7 @@ const Users = () => {
             </div>
             <div className="user-info">
                 <div className="info-label">Rol:</div>
-                <div className="info-value">{user.role}</div>
+                <div className="info-value">{user.role.name}</div>
             </div>
             <div className="user-info">
                 <div className="info-label">Número de Identificación:</div>
@@ -98,7 +98,7 @@ const Users = () => {
                 {users.map(user => (
                     <div key={user.id} className="user-item">
                         <h3>{user.username}</h3>
-                        <p>Rol: {user.role}</p>
+                        <p>Rol: {user.role.name}</p>
                         <button onClick={() => { setSelectedUser(user); setShowModal(true); }}>
                             Detalles
                         </button>
