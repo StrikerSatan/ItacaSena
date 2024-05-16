@@ -4,7 +4,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Input } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 
-const socket = io('/');
+const socket = io ('/');
 
 const Chat = ({ isOpen, onClose, projectData }) => {
   const [message, setMessage] = useState('');
@@ -103,51 +103,41 @@ const Chat = ({ isOpen, onClose, projectData }) => {
     }
   };
 
-
   return (
-    <div className={`fixed bottom-0 right-0 bg-zinc-800 text-white ${isOpen ? 'block' : 'hidden'}`}>
-      <button onClick={onClose} className='absolute top-0 right-0 m-2'>Cerrar Chat</button>
+    <div className={`border border-black fixed bottom-0 right-0 bg-white text-white ${isOpen ? 'block' : 'hidden'}`} style={{ maxWidth: '400px' }}>
+      <button onClick={onClose} className='text-5px absolute top-0 right-0 m-2 text-black'>Cerrar Chat</button>
       <div className='p-10 flex flex-col'>
-        <h1 className='text-2xl font-bold my-2'>Chat</h1>
-
-        <ul className="messages-list overflow-y-auto max-h-96 flex-1">
-          {messages.map((message) => (
-            <li key={message._id} className={`my-2 p-2 table rounded-md ${message._id === 'Yo' ? 'bg-sky-700' : 'bg-black ml-auto'}`}>
-              <span className='text-xs text-slate-300 block'>{message.message}</span>
-              <span className='text-xs text-slate-300 block'>{new Date(message.createdAt).toLocaleString()}</span> {/* Formatea la fecha aquí */}
-              <span className='text-md message-body'>{message.body}</span>
-              <div className='flex'>
-                <button onClick={() => handleEditMessage(message._id)} className='text-blue-500 mr-2'><FaEdit /></button>
-                <button onClick={() => handleDeleteMessage(message._id)} className='text-red-500'><FaTrash /></button>
-              </div>
-            </li>
-          ))}
-          <div ref={messagesEndRef} />
-        </ul>
-
+        <div className={`bg-black p-2 rounded-md`}>
+          <h1 className='text-2xl font-bold my-2 text-white'>Chat</h1>
+        </div>
+  
+        <div className="messages-list-container max-h-96" style={{ overflowY: 'scroll' }}>
+          <ul className="messages-list flex-1" style={{ overflowY: 'auto', paddingRight: '15px' }}>
+            {messages.map((message) => (
+              <li key={message._id} className={`my-2 p-2 table rounded-md ${message._id === 'Yo' ? 'bg-sky-700' : 'bg-black ml-auto'}`}>
+                <span className='text-xs text-slate-300 block'>{message.message}</span>
+                <span className='text-xs text-slate-300 block'>{new Date(message.createdAt).toLocaleString()}</span> {/* Formatea la fecha aquí */}
+                <span className='text-md message-body'>{message.body}</span>
+                <div className='flex'>
+                  <button onClick={() => handleEditMessage(message._id)} className='text-blue-500 mr-2'><FaEdit /></button>
+                  <button onClick={() => handleDeleteMessage(message._id)} className='text-red-500'><FaTrash /></button>
+                </div>
+              </li>
+            ))}
+            <div ref={messagesEndRef} />
+          </ul>
+        </div>
+  
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
           <Input type="text" placeholder='Mensaje' value={message} onChange={(e) => setMessage(e.target.value)} className='text-black mr-2' />
-
-          <Button color="warning" variant="faded" type='submit' onClick={handleSubmit} className='flex flex-wrap gap-4 items-center'>
-            Faded
-          </Button>
-
-          {/* <button type='submit' onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-
-          </button> */}
-        </div>
-
-        {/* <div className='flex items-center'>
-
-          <input type="text" placeholder='Escribir mensaje'
-            value={message} onChange={(e) => setMessage(e.target.value)} className='border-2 border-zinc-500 p-2 flex-1 text-black mr-2' />
-          <button type='submit' onClick={handleSubmit} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+  
+          <Button color="primary" variant="faded" type='submit' onClick={handleSubmit} className='flex flex-wrap gap-4 items-center'>
             Enviar
-          </button>
-        </div> */}
+          </Button>
+        </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default Chat;
