@@ -79,18 +79,7 @@ export default function EditarProyecto() {
           </SelectItem>
         )}
       </Select>
-      <div className="mb-4">
-        <label className="text-default-900 block mb-2">Fecha de Inicio y Fin del Proyecto</label>
-        <div className="w-full max-w-xs mx-auto">
-          <RangeCalendar
-            aria-label="Date (Visible Month)"
-            visibleMonths={1} // Solo mostramos un mes visible
-            onChange={handleRangeChange}
-            className="w-full"
-            disabledDates={disabledDates} // Deshabilitar fechas anteriores a hoy
-          />
-        </div>
-      </div>
+      
       <Button color="primary" onClick={handleEditarProyecto}>Editar Proyecto</Button>
     </div>
   );
