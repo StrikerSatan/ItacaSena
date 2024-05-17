@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardBody, CardFooter, Image, Button, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Input, Textarea } from "@nextui-org/react";
 import Modalperfil from "./Modals/Perfil";
 import { useNavigate } from 'react-router-dom';
+import '../../src/Css/menu.css'; // Asegúrate de importar tu archivo de estilos CSS
 
 function CrearProyecto({ isOpen, onClose }) {
   const [nombreProyecto, setNombreProyecto] = useState("");
@@ -73,7 +74,6 @@ export default function MenuPage() {
     }
   }, []);
 
-
   const getAllProjects = async (token) => {
     try {
       const response = await fetch("https://itacaapi-puw8.onrender.com/api/projects/", {
@@ -82,10 +82,10 @@ export default function MenuPage() {
           'Content-Type': 'application/json',
           'x-access-token': token
         },
-      })
+      });
 
       if (response.ok) {
-        const data = response.json();
+        const data = await response.json();
         console.log(data);
         return data;
       } else {
@@ -104,7 +104,7 @@ export default function MenuPage() {
           'Content-Type': 'application/json',
           'x-access-token': token
         },
-      })
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -117,11 +117,11 @@ export default function MenuPage() {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   const handleViewProject = (projectId) => {
     getProjectById(projectId, token);
-  }
+  };
 
   const openModal = () => {
     setShowModal(true);
@@ -151,36 +151,42 @@ export default function MenuPage() {
       </div>
 
       <div className="grid gap-2 grid-cols-2 sm:grid-cols-4">
-
         {proyectos.map((project) => (
-          <Card key={project.id} onClick={() => handleViewProject(project.id)}>
-            <CardBody className="overflow-visible p-0">
-              <Image shadow="sm"
-                radius="lg"
-                width="100%"
-                // alt={project.name}
-                className="w-full object-cover h-[140px]"
-                src={project.image} />
-            </CardBody>
-            <CardFooter className="text-small flex flex-col items-start">
-            <div className="flex justify-between w-full">
-                    <div>
-                      <b>{project.name}</b>
-                    </div>
-                    <span className="text-default-700">{project.name}</span>
+          <div key={project._id} style={{ minWidth: "300px" }}>
+            <Card
+              shadow="sm"
+              isPressable
+              onPress={() => handleViewProject(project._id)}
+              style={{ width: "300px", height: "auto" }}
+            >
+              <CardBody className="overflow-visible p-0">
+                <Image
+                  shadow="sm"
+                  radius="lg"
+                  alt={project.name}
+                  className="object-cover w-full h-[140px]"
+                  src={project.image}
+                  style={{ width: "100%", height: "auto" }} // Asegura que la imagen ocupe todo el ancho de la tarjeta
+                />
+              </CardBody>
+              <CardFooter className="text-small flex flex-col items-start p-4" style={{ gap: "8px" }}>
+                <div className="w-full">
+                  <div className="scroll-container" style={{ fontSize: "50px", fontWeight: "bold", marginBottom: "10px" }}>
+                    <span className="scroll-text">{project.name}</span>
                   </div>
-
-                  {/* Utilizamos la nueva barra de carga personalizada */}
-                  {/* <CustomProgressBar percentage={item.percentage} /> */}
-              <Button onClick={() => handleViewProject(project._id)} color='danger'>Ver</Button>
-            </CardFooter>
-          </Card>
+                  <div style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px" }}>
+                    {project.description}
+                  </div>
+                </div>
+                <CustomProgressBar percentage={project.percentage} />
+              </CardFooter>
+            </Card>
+          </div>
         ))}
       </div>
 
       <CrearProyecto isOpen={showModal} onClose={closeModal} />
-      <Modalperfil isOpen={isModalOpen} onClose={toggleModalperfil}>
-      </Modalperfil>
+      <Modalperfil isOpen={isModalOpen} onClose={toggleModalperfil} />
     </div>
   );
 }
