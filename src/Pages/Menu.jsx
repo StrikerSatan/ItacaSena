@@ -153,15 +153,28 @@ export default function MenuPage() {
       <div className="grid gap-2 grid-cols-2 sm:grid-cols-4">
 
         {proyectos.map((project) => (
-            <Card key={project.id} >
-              <CardBody shadow="sm" radius="lg" width="100%" isblurred>
-                <Image src={project.image} />
-              </CardBody>
-              <CardFooter className='flex justify-between items-center'>
-                <b>{project.name}</b>
-                <Button onClick={() => handleViewProject(project._id)} color='danger'>Ver</Button>
-              </CardFooter>
-            </Card>          
+          <Card key={project.id} onClick={() => handleViewProject(project.id)}>
+            <CardBody className="overflow-visible p-0">
+              <Image shadow="sm"
+                radius="lg"
+                width="100%"
+                // alt={project.name}
+                className="w-full object-cover h-[140px]"
+                src={project.image} />
+            </CardBody>
+            <CardFooter className="text-small flex flex-col items-start">
+            <div className="flex justify-between w-full">
+                    <div>
+                      <b>{project.name}</b>
+                    </div>
+                    <span className="text-default-700">{project.name}</span>
+                  </div>
+
+                  {/* Utilizamos la nueva barra de carga personalizada */}
+                  {/* <CustomProgressBar percentage={item.percentage} /> */}
+              <Button onClick={() => handleViewProject(project._id)} color='danger'>Ver</Button>
+            </CardFooter>
+          </Card>
         ))}
       </div>
 
