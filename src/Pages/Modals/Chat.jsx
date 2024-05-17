@@ -7,6 +7,7 @@ import { Button } from "@nextui-org/react";
 const socket = io('/');
 
 const Chat = ({ isOpen, onClose, projectData }) => {
+  
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
@@ -111,7 +112,7 @@ const Chat = ({ isOpen, onClose, projectData }) => {
           <h1 className='text-2xl font-bold my-2 text-white'>Chat</h1>
         </div>
 
-        <div className="messages-list-container max-h-96" >
+        <div className="messages-list-container max-h-96 overflow-y-auto" >
           <ul className="messages-list flex-1" style={{ overflowY: 'auto', paddingRight: '15px' }}>
             {messages.map((message) => (
               <li key={message._id} className={`my-2 p-2 table rounded-md ${message._id === 'Yo' ? 'bg-sky-700' : 'bg-black ml-auto'}`}>
